@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Horde of Beasts</h1>
+        <a href="/">Get More Pets?</a>
+
+        {%if pets is not empty %}
+            {%for pet in pets%}
+                <div class="pet">
+                    <h2> {{pet.getName}}
+                        <h3> Food: {{pet.getFood}}, Play: {{pet.getPlay}},   Sleep: {{pet.getSleep}}</h3>
+
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form action="/genocide" method="post">
+            <button type="submit" class="btn-danger">ONLY CRUEL PEOPLE PRESS HERE</button>
+        </form>
+    </body>
+</html>
