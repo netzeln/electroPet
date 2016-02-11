@@ -22,6 +22,7 @@
     });
 
     $app->get('/horde', function() use ($app){
+        var_dump($_SESSION['list_of_pets']);
         return $app['twig']->render('horde.html.twig', array('pets'=>Pet::getAll()));
     });
 
