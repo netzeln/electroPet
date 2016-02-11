@@ -63,7 +63,7 @@ class Pet {
         return $_SESSION['list_of_pets'];
     }
 
-    static function endAllLife(){
+    static function deleteAll(){
         $_SESSION['list_of_pets'] = array();
     }
 } ?>

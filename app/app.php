@@ -19,15 +19,18 @@
         $pet = new Pet($_POST['nameInput']);
         $pet->savePet();
         return $app['twig']->render('pet_list.html.twig', array('newPet'=>$pet));
+
     });
 
-    $app->get('/horde', function() use ($app){
-        var_dump($_SESSION['list_of_pets']);
-        return $app['twig']->render('horde.html.twig', array('pets'=>Pet::getAll()));
+    $app->post('/feed', function() use ($app) {
+        $testPet = $_SESSION['list_of_pets'][0];
+        $testPet->addFood();
+        var_dump($testPet);
+        return $app['twig']->render('feed.html.twig');
     });
 
     $app->post('/genocide', function() use ($app){
-        Pet::endAllLife();
+        Pet::deleteAll();
         return $app['twig']->render('genocide.html.twig');
     });
 
